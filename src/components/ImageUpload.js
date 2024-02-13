@@ -1,26 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/storage';
-import 'firebase/compat/firestore'; // Import Firestore
+import 'firebase/compat/firestore'; 
 import { Link } from 'react-router-dom';
 import '../index.css'
 
 function ImageUpload() {
-  const [user, setUser] = useState(null); // State to store the logged-in user
-  const [image, setImage] = useState(null); // State to store the selected image
-  const [progress, setProgress] = useState(0); // State to track upload progress
+  const [user, setUser] = useState(null); 
+  const [image, setImage] = useState(null); 
+  const [progress, setProgress] = useState(0); 
 
   useEffect(() => {
     // Check if a user is already signed in
     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-      setUser(user); // Update the user state
+      setUser(user); 
     });
-    return unsubscribe; // Unsubscribe from the auth state change listener when component unmounts
+    return unsubscribe; 
   }, []);
 
   const handleFileChange = (e) => {
     if (e.target.files[0]) {
-      // Set the selected image in the state
       setImage(e.target.files[0]);
     }
   };
@@ -52,9 +51,9 @@ function ImageUpload() {
     firebase.firestore().collection('images').add({
       downloadURL,
       imageName,
-      userName: user.displayName, // Include user's name in Firestore document
-      userAvatar: user.photoURL, // Include user's avatar URL in Firestore document
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(), // Include timestamp
+      userName: user.displayName, 
+      userAvatar: user.photoURL, 
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(), 
     })
     .then(() => {
       console.log('Image info saved to Firestore');
@@ -66,8 +65,8 @@ function ImageUpload() {
 
   const handleLogout = async () => {
     try {
-      await firebase.auth().signOut(); // Sign out the user
-      setUser(null); // Update the user state to null
+      await firebase.auth().signOut();
+      setUser(null); 
     } catch (error) {
       console.error('Error signing out:', error);
     }

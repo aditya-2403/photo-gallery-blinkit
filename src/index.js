@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import firebase from 'firebase/compat/app'; // Use compat/app instead of app
-import 'firebase/compat/auth'; // Use compat/auth instead of auth
-import 'firebase/compat/storage'; // Use compat/storage instead of storage
+import firebase from 'firebase/compat/app'; 
+import 'firebase/compat/auth'; 
+import 'firebase/compat/storage'; 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
 import SignIn from './components/SignIn';
