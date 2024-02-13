@@ -6,8 +6,56 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.bg-back{
+  /* background-image: linear-gradient(to bottom, #02041d 67%, #542f4b); */
+  background-color: #a5ecf7;
+  height: 100vh;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 16px; /* You can adjust the margin value as needed */
+}
+
+.userInfoContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px; /* You can adjust the margin value as needed */
+}
+
+.userAvatar {
+  width: 48px; /* You can adjust the width value as needed */
+  height: 48px; /* You can adjust the height value as needed */
+  margin-right: 8px; /* You can adjust the margin value as needed */
+}
+
+.uploadSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 16px; /* You can adjust the margin value as needed */
+}
+
+.input {
+  display: none;
+}
+.logoutbtn{
+  background: rgba(93, 5, 255, 0.316) !important;
+  width: 7%;
+}
+.upload-section{
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+@media (max-width: 426px) {
+  .logoutbtn{
+    width: 50%;
+  }
 }
